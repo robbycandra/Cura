@@ -524,6 +524,7 @@ class CuraApplication(QtApplication):
     ##  Handle loading of all plugin types (and the backend explicitly)
     #   \sa PluginRegistry
     def _loadPlugins(self):
+        self._plugin_registry.addType("package_reader", self._addProfileReader) # Reuse since it's an empty fn anyway
         self._plugin_registry.addType("profile_reader", self._addProfileReader)
         self._plugin_registry.addType("profile_writer", self._addProfileWriter)
 
